@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Countdown to July 3, 2023</title>
+</head>
+<body>
+
+<h1 id="countdown">Countdown</h1>
+<h1 style="display: none" id="message">❤️ I Love You Rylee ❤️</h1>
+<div style="display: none" id="video">
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/A0FlhhS-bbM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+
+<script>
+// Set the date we're counting down to
+var countDownDate = new Date("Jul 3, 2023 00:00:00").getTime();
+
+// Update the count down every 1 second
+var countdownFunction = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="countdown"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is over, show video and message
+  if (distance < 0) {
+    clearInterval(countdownFunction);
+    document.getElementById("countdown").style.display = "none";
+    document.getElementById("message").style.display = "block";
+    document.getElementById("video").style.display = "block";
+  }
+}, 1000);
+</script>
+
+</body>
+</html>
